@@ -175,10 +175,32 @@ namespace UUPDownload.DownloadRequest
             public int[] excludedIds;
         }
 
-        private static readonly string RepoLocation = @"F:\Git\Qualcomm-Reference-Drivers";
+        private static readonly string RepoLocation = @"E:\WOA-Project\Qualcomm-Reference-Drivers";
 
         private static readonly DriverPlan[] plans = new DriverPlan[]
         {
+            new() // Snapdragon 7c+ Gen 3 Clamshell Reference Design
+            {
+                outputFolder = RepoLocation + @"\7280_WINDOWS_CLS",
+                guid = CTAC.GenerateDeviceId("Qualcomm", "SC_KODIAK_WINDOWS", "CLS", "6").ToString(),
+                filteredIds = Array.Empty<int>(),
+                excludedIds = Array.Empty<int>()
+            },
+            new() // Snapdragon 8cx Gen 1/2 Clamshell Reference Design
+            {
+                outputFolder = RepoLocation + @"\8180_CLS",
+                guid = CTAC.GenerateDeviceId("Qualcomm", "SC8180X", "CLS", "6").ToString(),
+                filteredIds = Array.Empty<int>(),
+                excludedIds = Array.Empty<int>()
+            },
+            new() // Snapdragon 7c+ Gen 3 Galaxy Book2 Go 5G Reference Design
+            {
+                outputFolder = RepoLocation + @"\Samsung\GalaxyBook2Go5G",
+                guid = CTAC.GenerateDeviceId("SAMSUNG ELECTRONICS CO., LTD.", "Galaxy Book Series", "Galaxy Book2 Go 5G", "GALAXY A5A5-PAKR"),
+                filteredIds = Array.Empty<int>(),
+                excludedIds = Array.Empty<int>()
+            },
+            /*
             new() // Snapdragon 8cx Gen 1 (Pre-release) Clamshell Reference Design
             {
                 outputFolder = RepoLocation + @"\1000_CLS",
@@ -197,20 +219,6 @@ namespace UUPDownload.DownloadRequest
             {
                 outputFolder = RepoLocation + @"\7280_CLS",
                 guid = CTAC.GenerateDeviceId("Qualcomm", "SC_KODIAK", "CLS", "6").ToString(),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Snapdragon 7c+ Gen 3 Clamshell Reference Design
-            {
-                outputFolder = RepoLocation + @"\7280_WINDOWS_CLS",
-                guid = CTAC.GenerateDeviceId("Qualcomm", "SC_KODIAK_WINDOWS", "CLS", "6").ToString(),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Snapdragon 8cx Gen 1/2 Clamshell Reference Design
-            {
-                outputFolder = RepoLocation + @"\8180_CLS",
-                guid = CTAC.GenerateDeviceId("Qualcomm", "SC8180X", "CLS", "6").ToString(),
                 filteredIds = Array.Empty<int>(),
                 excludedIds = Array.Empty<int>()
             },
@@ -270,7 +278,7 @@ namespace UUPDownload.DownloadRequest
                 filteredIds = Array.Empty<int>(),
                 excludedIds = Array.Empty<int>()
             },
-            /*new()
+            new()
             {
                 outputFolder = RepoLocation + @"\Samsung\GalaxyBook2_VZW_Legacy",
                 guid = "{4ddc74f1-1cba-50ac-96c4-baeaf09a117d}",
@@ -431,7 +439,8 @@ namespace UUPDownload.DownloadRequest
                 guid = "{ca0158e4-038b-5a84-8037-1b3cbf948d8a}",
                 filteredIds = Array.Empty<int>(),
                 excludedIds = Array.Empty<int>()
-            },*/
+            },
+            */
         };
 
         private static async Task CheckAndDownloadUpdates(OSSkuId ReportingSku,
